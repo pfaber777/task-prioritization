@@ -34,13 +34,13 @@ class Task {
         input.focus();
 
       } else {
-        const input = this.listItem.querySelector('input');
-        this.value = input.value.trim();
-        this.textSpan.textContent = this.value;
-        this.listItem.replaceChild(this.textSpan, input);
-        this.editBtn.textContent = 'Edit';
-      }
-    });
+          const input = this.listItem.querySelector('input');
+          this.value = input.value.trim();
+          this.textSpan.textContent = this.value;
+          this.listItem.replaceChild(this.textSpan, input);
+          this.editBtn.textContent = 'Edit';
+        }
+      });
   }
   render(container) {
     container.appendChild(this.listItem);
@@ -51,14 +51,21 @@ const userTaskInput = document.querySelector('.userTaskInput');
 const taskList = document.querySelector('.task-list');
 const addBtn = document.querySelector('.add-btn');
 
-
-addBtn.addEventListener('click', () => {
+function globalAddLogic() {
   const value = userTaskInput.value.trim();
   if (value === "") return;
-
+  
   const task = new Task(value);
   task.render(taskList);
-
+  
   userTaskInput.value = "";
+}
+
+addBtn.addEventListener('click', globalAddLogic);
+userTaskInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    globalAddLogic();
+  }
 });
-    
+ 
