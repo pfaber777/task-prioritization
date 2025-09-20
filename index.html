@@ -13,16 +13,36 @@
     <section class="body-main-container">
         <h3>Add Task</h3>
         <input class="userTaskInput" type="text" name="user-task" id="user-task-input" title="user-task">
+        <section class="input-container">
+        <label for="priority">Priority</label>
+        <select name="priority" class="priority-select" title="priority-select">
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        </section>
+        <section class="priority-list">
         <button class="add-btn">Add Item</button>
+
+        <h3>High Priority</h3>
+        <ul class="task-list-high"></ul>
+
+        <h3>Medium Priority</h3>
+        <ul class="task-list-medium"></ul>
+
+        <h3>Low Priority</h3>
+        <ul class="task-list-low"></ul>
+
         <section class="body">
           <ul class="task-list">
 
           </ul>
         </section>
+        </section>
     </section>
     <section class="footer-container">
       <footer class="footer-footer">
-        <h3>footer heading</h3>
+        <h3 class="footer-heading"></h3>
         <ul class="footer-list">
           <li><a href="http:/#">Brand Link</a></li>
         </ul>
@@ -31,7 +51,3 @@
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-
-
-
-
